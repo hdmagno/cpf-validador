@@ -31,6 +31,8 @@ namespace Validator.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Validator.Api", Version = "v1" });
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +46,13 @@ namespace Validator.Api
             }
 
             app.UseRouting();
+
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            });
 
             app.UseAuthorization();
 
