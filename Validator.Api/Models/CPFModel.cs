@@ -8,7 +8,7 @@ namespace Validator.Api.Models
 {
     public class CPFModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "{1} é obrigatório.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório.")]
         [StringLength(14, MinimumLength = 11, ErrorMessage = "CPF deve conter {2} digitos.")]
         public string Cpf { get; set; }
     }
